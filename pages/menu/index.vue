@@ -1,17 +1,25 @@
 <template>
-  <div>
-    <h2>Food</h2>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae temporibus
-      repellat commodi voluptatem laborum atque nobis eum at. Nesciunt, culpa.
-    </p>
-  </div>
+  <main>
+    <div class="grid grid-cols-4 gap-5">
+      <div v-for="recipe in recipes" :key="recipe.id">
+        <NuxtLink :to="`/menu/${recipe.id}`">{{ recipe.name }}</NuxtLink>
+      </div>
+    </div>
+  </main>
 </template>
 
 <script setup lang="ts">
 definePageMeta({
   layout: "menu",
 });
+
+// Hämtar recept
+const { data } = await useFetch<{ recipes: Recipe[] }>(
+  "https://dummyjson.com/recipes"
+);
+
+const recipes: Recipe[] = data.value?.recipes || [];
+console.log(recipes);
 </script>
 
 <style scoped>
