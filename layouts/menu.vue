@@ -1,8 +1,10 @@
 <template>
   <div>
     <header class="shadow-sm bg-white">
-      <nav class="container mx-auto p-4">
-        <NuxtLink to="/menu" class="font-bold text-2xl">NuxtMenu</NuxtLink>
+      <nav class="container mx-auto p-4 text-[#12b488]">
+        <NuxtLink to="/menu" class="font-bold text-2xl"
+          >Nuxt<span class="text-black">Menu</span></NuxtLink
+        >
       </nav>
     </header>
     <main class="container mx-auto p4">

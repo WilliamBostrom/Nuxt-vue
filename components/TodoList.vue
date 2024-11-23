@@ -38,7 +38,7 @@ function handleToggleTodo(id: number, value: boolean): void {
 </script>
 
 <template>
-  <div class="todo-list-wrapper">
+  <div class="card">
     <p v-if="type === 'isLoading'" class="state-text">Loading...</p>
     <p v-else-if="type === 'error'" class="state-text">{{ error }}</p>
     <div v-else-if="type === 'todos'" class="todo-list">
@@ -46,7 +46,7 @@ function handleToggleTodo(id: number, value: boolean): void {
         <p v-if="props.todos.length === 0" class="state-text">No todos yet</p>
         <ul>
           <li v-for="todo in props.todos" :key="todo.id">
-            <div :class="todo.completed ? 'completed' : ''">
+            <div class="bg-gray-300" :class="todo.completed ? 'completed' : ''">
               <label>
                 <input
                   type="checkbox"
@@ -61,7 +61,7 @@ function handleToggleTodo(id: number, value: boolean): void {
                 <div name="title">{{ todo.title }}</div>
               </label>
               <button
-                class="remove-todo-button"
+                class="btn remove-todo-button"
                 aria-label="test"
                 @click="$emit('removetodo', todo.id)"
               >
@@ -72,14 +72,19 @@ function handleToggleTodo(id: number, value: boolean): void {
         </ul>
       </div>
     </div>
-
-    <form class="add-todo-form" @submit.prevent="handleAddTodo">
-      <input placeholder="New Todo" v-model="inputText" />
-      <button
-        class="add-todo-button"
-        type="submit"
-        :disabled="!inputText || disableAdding"
-      >
+    <!--     .add-todo-form {
+  padding: 15px;
+  background-color: #303030;
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid #4b4b4b;
+} -->
+    <form
+      class="card p-[15px] flex flex-wrap border-t border-gray-50"
+      @submit.prevent="handleAddTodo"
+    >
+      <input class="bg-gray-300" placeholder="New Todo" v-model="inputText" />
+      <button class="btn" type="submit" :disabled="!inputText || disableAdding">
         Add
       </button>
     </form>
@@ -87,11 +92,11 @@ function handleToggleTodo(id: number, value: boolean): void {
 </template>
 
 <style scoped>
-.todo-list-wrapper {
+/* .todo-list-wrapper {
   background-color: #424242;
   border: 2px solid #4b4b4b;
   border-radius: 5px;
-}
+} */
 .state-text {
   margin: 0;
   padding: 15px;
@@ -110,13 +115,12 @@ ul li > div {
   margin-bottom: 5px;
   display: flex;
   align-items: center;
-  background-color: #303030;
   border-radius: 5px;
   padding: 10px;
   position: relative;
 }
 
-.todo-list-wrapper .todo-list ul li > div:hover .remove-todo-button {
+.card .todo-list ul li > div:hover .remove-todo-button {
   display: block;
 }
 
@@ -133,14 +137,13 @@ input[type="checkbox"] {
 }
 
 .completed {
-  opacity: 0.5;
+  opacity: 0.8;
   text-decoration: line-through;
   color: black;
 }
 .remove-todo-button {
   border: none;
-  background: #42b883aa;
-  color: black;
+  color: white;
   padding: 5px;
   position: absolute;
   right: 10px;
@@ -148,16 +151,8 @@ input[type="checkbox"] {
   display: none;
 }
 
-.add-todo-form {
-  padding: 15px;
-  background-color: #303030;
-  display: flex;
-  flex-wrap: wrap;
-  border-top: 1px solid #4b4b4b;
-}
 input {
   flex: 1;
-  background-color: #424242;
   border: 1px solid #4b4b4b;
   padding: 10px;
   color: #fff;

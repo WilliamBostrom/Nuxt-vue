@@ -150,7 +150,7 @@ async function handleToggleTodo(payload: { id: number; value: boolean }) {
 </script>
 
 <template>
-  <div>
+  <div class="min-h-[350px]">
     <label id="input-hide-while-spin">
       <input type="checkbox" v-model="showList" />
       {{ showList ? "Uncheck to hide todos" : "Show todos" }}
