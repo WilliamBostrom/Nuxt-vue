@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
     }
 
     const data = await response.json();
-    return data; // Returnerar hela objektet, inklusive receptet
+    return data;
   } catch (error) {
     throw createError({
       statusCode: 500,

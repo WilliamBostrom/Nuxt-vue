@@ -9,7 +9,7 @@
 <script setup lang="ts">
 const { id } = useRoute().params;
 
-const { data: recipe } = await useFetch<Recipe>(`api/food/${id}`);
+const { data: recipe } = await useFetch<Recipe>(`/api/food/${id}`);
 
 if (!recipe.value) {
   throw createError({ statusCode: 404, statusMessage: "Recipe not found." });
