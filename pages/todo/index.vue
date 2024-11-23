@@ -6,6 +6,9 @@
 definePageMeta({
   layout: "todo",
 });
+useHead({
+  title: "NextTodo"
+})
 </script>
 
 <style scoped></style>

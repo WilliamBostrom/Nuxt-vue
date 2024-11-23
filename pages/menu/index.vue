@@ -13,13 +13,14 @@ definePageMeta({
   layout: "menu",
 });
 
-// Hämtar recept
-const { data } = await useFetch<{ recipes: Recipe[] }>(
-  "https://dummyjson.com/recipes"
-);
+useHead({
+  title: "NextMenu",
+});
 
-const recipes: Recipe[] = data.value?.recipes || [];
-// console.log(recipes);
+// Hämtar recepten från din server-API-endpoint
+const { data } = await useFetch<Recipe[]>("api/food/menus"); // Anropar den server-sida API-routen
+
+const recipes: Recipe[] = data.value || [];
 </script>
 
 <style scoped>
