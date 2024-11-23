@@ -2,7 +2,7 @@
   <main>
     <div class="grid grid-cols-4 gap-5">
       <div v-for="recipe in recipes" :key="recipe.id">
-        <NuxtLink :to="`/menu/${recipe.id}`">{{ recipe.name }}</NuxtLink>
+        <MenuCard :recipe="recipe" />
       </div>
     </div>
   </main>
@@ -19,7 +19,7 @@ const { data } = await useFetch<{ recipes: Recipe[] }>(
 );
 
 const recipes: Recipe[] = data.value?.recipes || [];
-console.log(recipes);
+// console.log(recipes);
 </script>
 
 <style scoped>
