@@ -7,7 +7,7 @@
         >
         <ul class="flex gap-4">
           <li><NuxtLink to="/">Home</NuxtLink></li>
-          <li><NuxtLink to="/todo">Todo List</NuxtLink></li>
+          <li><NuxtLink to="/todo">To-Dos</NuxtLink></li>
 
           <li><NuxtLink class="btn" to="/menu">Food menu</NuxtLink></li>
         </ul>

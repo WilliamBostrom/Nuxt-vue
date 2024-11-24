@@ -61,11 +61,11 @@ function handleToggleTodo(id: number, value: boolean): void {
                 <div name="title">{{ todo.title }}</div>
               </label>
               <button
-                class="btn remove-todo-button"
+                class="remove-todo-button"
                 aria-label="test"
                 @click="$emit('removetodo', todo.id)"
               >
-                <span> Delete </span>
+                <span> 🗑️ </span>
               </button>
             </div>
           </li>

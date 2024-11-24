@@ -14,7 +14,7 @@
       <ul class="flex gap-4 py-4">
         <li><NuxtLink to="/">Home</NuxtLink></li>
 
-        <li><NuxtLink to="/todo">To Do List</NuxtLink></li>
+        <li><NuxtLink to="/todo">To-Dos</NuxtLink></li>
         <li><NuxtLink to="/menu">Food menu</NuxtLink></li>
       </ul>
     </footer>

@@ -167,7 +167,7 @@ function toggleShowList(): void {
       </button>
     </div>
     <div v-else class="w-full flex justify-end pt-4 py-2">
-      <button @click="toggleShowList" class="btn mr-4">Close list!</button>
+      <button @click="toggleShowList" class="btn mr-4">Close list</button>
     </div>
     <div
       id="todo-list-container"
@@ -196,9 +196,9 @@ function toggleShowList(): void {
   padding: 1.5em;
 } */
 
-.btn-start:hover {
+.btn-start:active {
   will-change: filter;
-  transition: filter 400ms;
+  transition: 2s filter 400ms;
   filter: drop-shadow(0 0 2em #42b883aa);
 }
 </style>
