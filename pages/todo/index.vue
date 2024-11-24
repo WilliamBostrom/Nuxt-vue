@@ -24,7 +24,7 @@ const error = ref<string | null>(null);
 const isLoading = ref(false);
 const isAdding = ref(false);
 const scrollOnAdd = ref("top");
-const showList = ref(false);
+let showList = ref(false);
 
 // När sidan laddas
 onMounted(() => {
@@ -147,17 +147,30 @@ async function handleToggleTodo(payload: { id: number; value: boolean }) {
     alert("Network error");
   }
 }
+function toggleShowList(): void {
+  showList.value = !showList.value;
+  console.log(showList);
+}
 </script>
 
 <template>
-  <div class="min-h-[350px]">
-    <label id="input-hide-while-spin">
-      <input type="checkbox" v-model="showList" />
-      {{ showList ? "Uncheck to hide todos" : "Show todos" }}
-    </label>
+  <div class="">
+    <div
+      v-if="!showList"
+      class="w-full min-h-[380px] flex justify-center items-center btn-start"
+    >
+      <button
+        @click="toggleShowList"
+        class="btn flex justify-center items-center px-6 py-2"
+      >
+        Lets start!
+      </button>
+    </div>
+    <div v-else class="w-full flex justify-end pt-4 py-2">
+      <button @click="toggleShowList" class="btn">Close list!</button>
+    </div>
     <div
       id="todo-list-container"
-      class="logo"
       v-show="showList"
       :style="{
         transition: 'transform 1s ease-in-out',
@@ -183,9 +196,9 @@ async function handleToggleTodo(payload: { id: number; value: boolean }) {
   padding: 1.5em;
 } */
 
-/* #todo-list-container:hover {
+.btn-start:hover {
   will-change: filter;
   transition: filter 400ms;
   filter: drop-shadow(0 0 2em #42b883aa);
-} */
+}
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div class="card">
     <div class="grid grid-cols-2 gap-10">
-      <div class="p-7">
-        <img :src="recipe.image" alt="recipe image" class="mx-auto my-7" />
+      <div class="p-7 mx-auto my-7">
+        <img :src="recipe.image" alt="recipe image" />
       </div>
       <div class="p-7">
         <h2 class="text-4xl my-7">{{ recipe.name }}</h2>

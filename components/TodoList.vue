@@ -38,15 +38,15 @@ function handleToggleTodo(id: number, value: boolean): void {
 </script>
 
 <template>
-  <div class="card">
+  <div class="card border-2">
     <p v-if="type === 'isLoading'" class="state-text">Loading...</p>
     <p v-else-if="type === 'error'" class="state-text">{{ error }}</p>
     <div v-else-if="type === 'todos'" class="todo-list">
-      <div bind:offsetHeight="{listDivScrollHeight}">
+      <div>
         <p v-if="props.todos.length === 0" class="state-text">No todos yet</p>
         <ul>
           <li v-for="todo in props.todos" :key="todo.id">
-            <div class="bg-gray-300" :class="todo.completed ? 'completed' : ''">
+            <div class="card" :class="todo.completed ? 'completed' : ''">
               <label>
                 <input
                   type="checkbox"
@@ -72,18 +72,12 @@ function handleToggleTodo(id: number, value: boolean): void {
         </ul>
       </div>
     </div>
-    <!--     .add-todo-form {
-  padding: 15px;
-  background-color: #303030;
-  display: flex;
-  flex-wrap: wrap;
-  border-top: 1px solid #4b4b4b;
-} -->
-    <form
-      class="card p-[15px] flex flex-wrap border-t border-gray-50"
-      @submit.prevent="handleAddTodo"
-    >
-      <input class="bg-gray-300" placeholder="New Todo" v-model="inputText" />
+    <form class="card p-[15px] flex flex-wrap" @submit.prevent="handleAddTodo">
+      <input
+        class="bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#12b488]"
+        placeholder="New Todo"
+        v-model="inputText"
+      />
       <button class="btn" type="submit" :disabled="!inputText || disableAdding">
         Add
       </button>
@@ -92,11 +86,6 @@ function handleToggleTodo(id: number, value: boolean): void {
 </template>
 
 <style scoped>
-/* .todo-list-wrapper {
-  background-color: #424242;
-  border: 2px solid #4b4b4b;
-  border-radius: 5px;
-} */
 .state-text {
   margin: 0;
   padding: 15px;
@@ -153,13 +142,12 @@ input[type="checkbox"] {
 
 input {
   flex: 1;
-  border: 1px solid #4b4b4b;
   padding: 10px;
-  color: #fff;
+  color: black;
   border-radius: 5px;
   margin-right: 10px;
 }
-/* .add-todo-button:disabled {
-  background-color: #42b883aa;
-} */
+input:focus {
+  border: none;
+}
 </style>
