@@ -1,10 +1,10 @@
 <template>
   <div class="card">
-    <div class="grid grid-cols-2 gap-10">
-      <div class="p-7 mx-auto my-7">
+    <div class="grid md:lg:grid-cols-1 lg:grid-cols-2 md:gap-2 lg:gap-10">
+      <div class="lg:p-7 mx-auto md:my-2 lg:my-7">
         <img :src="recipe.image" alt="recipe image" />
       </div>
-      <div class="p-7">
+      <div class="md:p-2 lg:p-7">
         <h2 class="text-4xl my-7">{{ recipe.name }}</h2>
         <div class="flex gap-2">
           <p class="pr-[12px] border-r border-gray-200">
@@ -37,11 +37,17 @@
           </div>
           <div>
             <h3 class="text-2xl my-5 underline">Ingredients</h3>
-            <ul>
+            <ul
+              :class="
+                recipe.ingredients.length > 5
+                  ? 'grid grid-cols-2 gap-4'
+                  : 'flex flex-col gap-2'
+              "
+            >
               <li
-                class="flex items-center gap-2"
                 v-for="(ingredient, index) in recipe.ingredients"
                 :key="index"
+                class="flex items-center gap-2"
               >
                 <span
                   class="h-3 w-3 p-3 text-gray-950 rounded-full flex items-center justify-center border-green-500 border-2"

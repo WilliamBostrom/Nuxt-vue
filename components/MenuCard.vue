@@ -1,7 +1,24 @@
 <template>
-  <div class="card text-center">
-    <img :src="recipe.image" alt="recipe thumb" class="thumb" />
-    <p class="font-bold text-gray-500 truncate">{{ recipe.name }}</p>
+  <div class="card text-center flex-wrap">
+    <img :src="recipe.image" alt="recipe thumb" class="thumb pb-2" />
+    <p class="font-bold text-gray-700 truncate text-start">
+      {{ recipe.name }}
+    </p>
+    <div class="h-[80px] flex flex-col items-start">
+      <span
+        >⭐
+        <span class="text-sm"
+          >{{ recipe.rating }}/5 ({{ recipe.reviewCount }})
+        </span></span
+      >
+      <span
+        >🕒 <span class="text-sm">{{ recipe.cookTimeMinutes }} min </span></span
+      >
+      <span
+        >🔥
+        <span class="text-sm">{{ recipe.caloriesPerServing }} cals </span></span
+      >
+    </div>
     <NuxtLink :to="`/menu/${recipe.id}`">
       <p class="btn">View Details</p>
     </NuxtLink>
@@ -14,8 +31,9 @@ const { recipe } = defineProps(["recipe"]);
 
 <style scoped>
 .thumb {
-  max-height: 120px;
-  max-width: 70%;
+  /* width: 100%; */
+  max-height: 300px;
+  max-width: 100%;
   margin: 0 auto;
 }
 </style>

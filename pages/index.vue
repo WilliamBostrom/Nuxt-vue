@@ -9,7 +9,8 @@
             Explore recipes or create to-dos! The choice is yours!
           </h1>
           <p class="text-xl lg:text-2xl mb-8 text-balance">
-            Discover recipes helping you to find the easiest way to cook.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt,
+            dolores.
           </p>
 
           <NuxtLink

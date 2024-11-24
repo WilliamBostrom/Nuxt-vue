@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="grid grid-cols-4 gap-5">
+    <div class="mt-6 gap-6 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       <div v-for="recipe in recipes" :key="recipe.id">
         <MenuCard :recipe="recipe" />
       </div>
