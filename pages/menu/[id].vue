@@ -1,5 +1,5 @@
 <template>
-  <div v-if="recipe">
+  <div class="mb-8" v-if="recipe">
     <MenuDetails :recipe="recipe" />
   </div>
 

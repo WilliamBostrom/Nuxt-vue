@@ -154,7 +154,7 @@ function toggleShowList(): void {
 </script>
 
 <template>
-  <div class="">
+  <div class="mb-4">
     <div
       v-if="!showList"
       class="w-full min-h-[380px] flex justify-center items-center btn-start"
