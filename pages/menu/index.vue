@@ -17,8 +17,7 @@ useHead({
   title: "NextMenu",
 });
 
-// Hämtar recepten från din server-API-endpoint
-const { data } = await useFetch<Recipe[]>("api/food/menus"); // Anropar den server-sida API-routen
+const { data } = await useFetch<Recipe[]>("api/food/menus");
 
 const recipes: Recipe[] = data.value || [];
 </script>

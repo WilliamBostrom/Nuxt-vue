@@ -13,4 +13,9 @@ body {
   .card {
     @apply p-3 rounded-md bg-white shadow-md h-full mt-3;
   }
+  .default-margin {
+    @apply mx-auto;
+    margin-left: 13vw;
+    margin-right: 13vw;
+  }
 }
