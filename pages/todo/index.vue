@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from "vue";
+// import { ref, onMounted, watch } from "vue";
 import HelloWorld from "@/components/TodoList.vue";
 import spin from "@/components/utils/spin";
 
@@ -25,6 +25,7 @@ const isLoading = ref(false);
 const isAdding = ref(false);
 const scrollOnAdd = ref("top");
 let showList = ref(false);
+const filterText = ref("");
 
 // När sidan laddas
 onMounted(() => {
@@ -39,10 +40,10 @@ watch(showList, (newValue) => {
   if (newValue) {
     if (hideInput) hideInput.style.display = "none";
     if (listContainer) {
-      spin(listContainer, { duration: 2000, spin: 2 });
+      spin(listContainer, { duration: 1000, spin: 0.5 });
       setTimeout(() => {
         if (hideInput) hideInput.style.display = "block";
-      }, 2400);
+      }, 1000);
     }
   }
 });
@@ -151,6 +152,12 @@ function toggleShowList(): void {
   showList.value = !showList.value;
   console.log(showList);
 }
+
+const filteredTasks = computed(() =>
+  todos.value.filter((task) =>
+    task.title.toLowerCase().includes(filterText.value.toLowerCase())
+  )
+);
 </script>
 
 <template>
@@ -166,8 +173,16 @@ function toggleShowList(): void {
         Lets start!
       </button>
     </div>
+
     <div v-else class="w-full flex justify-end pt-4 py-2">
       <button @click="toggleShowList" class="btn mr-4">Close list</button>
+    </div>
+    <div class="flex items-center justify-center">
+      <input
+        class="border border-gray-200 card bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#12b488] justify-center p-2"
+        placeholder="Filter to-dos..."
+        v-model="filterText"
+      />
     </div>
     <div
       id="todo-list-container"
@@ -177,6 +192,7 @@ function toggleShowList(): void {
       }"
     >
       <HelloWorld
+        :filteredTasks="filteredTasks"
         :todos="todos"
         :error="error"
         :is-loading="isLoading"
@@ -191,11 +207,6 @@ function toggleShowList(): void {
 </template>
 
 <style scoped>
-/* .logo {
-  height: 6em;
-  padding: 1.5em;
-} */
-
 .btn-start:active {
   will-change: filter;
   transition: 2s filter 400ms;

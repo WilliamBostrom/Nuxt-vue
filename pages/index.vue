@@ -31,7 +31,6 @@
             src="https://images.playground.com/cm0mpzksi01eqahllbsdzboea_original.jpeg"
             alt="cover image of food"
           />
-          <img src="" alt="" />
         </div>
       </div>
     </section>

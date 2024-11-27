@@ -16,11 +16,20 @@
           /></label>
           <label for="email"
             >Email
-            <input type="text" placeholder="example@mail.com" name="email"
+            <input
+              type="text"
+              required
+              placeholder="example@mail.com"
+              name="email"
           /></label>
           <label for="password"
             >Password
-            <input type="password" placeholder="Password" name="password" />
+            <input
+              type="password"
+              required
+              placeholder="Password"
+              name="password"
+            />
           </label>
           <label for="password"
             >Confirm password

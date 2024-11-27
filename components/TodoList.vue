@@ -16,6 +16,7 @@ const props = defineProps<{
   isLoading: boolean;
   disableAdding: boolean;
   scrollOnAdd: string;
+  filteredTasks: Todo[];
 }>();
 
 const type = computed(() => {
@@ -45,7 +46,7 @@ function handleToggleTodo(id: number, value: boolean): void {
       <div>
         <p v-if="props.todos.length === 0" class="state-text">No todos yet</p>
         <ul>
-          <li v-for="todo in props.todos" :key="todo.id">
+          <li v-for="todo in props.filteredTasks" :key="todo.id">
             <div class="card" :class="todo.completed ? 'completed' : ''">
               <label>
                 <input
