@@ -2,10 +2,11 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/supabase", "@nuxt/image"],
-  supabase: {
-    redirect: false,
-  },
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/image"],
+  // "@nuxtjs/supabase",
+  // supabase: {
+  //   redirect: false,
+  // },
   app: {
     head: {
       title: "NuxtChas",
