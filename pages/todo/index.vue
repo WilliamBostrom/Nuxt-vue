@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// import { ref, onMounted, watch } from "vue";
 import HelloWorld from "@/components/TodoList.vue";
 import spin from "@/components/utils/spin";
 
@@ -26,9 +25,17 @@ const isAdding = ref(false);
 const scrollOnAdd = ref("top");
 let showList = ref(false);
 const filterText = ref("");
+const savedTodos = ref<Todo[]>([]);
 
 // När sidan laddas
 onMounted(() => {
+  if (typeof localStorage !== "undefined") {
+    const storedTodos = localStorage.getItem("tasks");
+    if (storedTodos) {
+      savedTodos.value = JSON.parse(storedTodos);
+    }
+  }
+
   loadTodos();
 });
 
@@ -50,13 +57,21 @@ watch(showList, (newValue) => {
 
 // Hämta todos
 async function loadTodos() {
+  if (savedTodos.value.length > 0) {
+    todos.value = savedTodos.value;
+    return;
+  }
+
   isLoading.value = true;
   try {
     const response = await fetch(
       "https://jsonplaceholder.typicode.com/todos?_limit=10"
     );
     if (response.ok) {
-      todos.value = await response.json();
+      const apiTodos = await response.json();
+      todos.value = apiTodos;
+      savedTodos.value = apiTodos;
+      localStorage.setItem("tasks", JSON.stringify(apiTodos));
     } else {
       error.value = "An error has occurred";
     }
@@ -67,31 +82,29 @@ async function loadTodos() {
   }
 }
 
+// uppdatera savedTodos när todos ändras
+watch(
+  todos,
+  () => {
+    savedTodos.value = todos.value;
+    localStorage.setItem("tasks", JSON.stringify(todos.value));
+  },
+  { deep: true }
+);
+
 // Lägg till todo
 async function handleAddTodo(event: string) {
   isAdding.value = true;
   try {
-    const response = await fetch("https://jsonplaceholder.typicode.com/todos", {
-      method: "POST",
-      body: JSON.stringify({
-        title: event,
-        completed: false,
-        userId: 1,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    });
-
-    if (response.ok) {
-      const todo = await response.json();
-      todos.value = [{ ...todo, id: Date.now() }, ...todos.value];
-      console.log(todos);
-    } else {
-      alert("An error has occurred.");
-    }
+    const newTodo = {
+      id: Date.now(),
+      title: event,
+      completed: false,
+      userId: 1,
+    };
+    todos.value = [newTodo, ...todos.value];
   } catch (err) {
-    alert("Network error");
+    alert("An error occurred while adding the todo.");
   } finally {
     isAdding.value = false;
   }
@@ -179,6 +192,7 @@ const filteredTasks = computed(() =>
     </div>
     <div class="flex items-center justify-center">
       <input
+        v-if="showList"
         class="border border-gray-200 card bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#12b488] justify-center p-2"
         placeholder="Filter to-dos..."
         v-model="filterText"
