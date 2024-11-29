@@ -2,7 +2,8 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/image"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/color-mode", "@nuxt/image"],
+
   // "@nuxtjs/supabase",
   // supabase: {
   //   redirect: false,
@@ -15,5 +16,8 @@ export default defineNuxtConfig({
         { name: "viewport", content: "width=device-width, initial-scale=1" },
       ],
     },
+  },
+  colorMode: {
+    classSuffix: "",
   },
 });

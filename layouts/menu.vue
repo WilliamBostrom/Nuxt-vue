@@ -5,7 +5,10 @@
         <NuxtLink to="/menu" class="font-bold text-2xl grow text-[#12b488]"
           >Nuxt<span class="text-black dark:text-gray-300">Menu</span></NuxtLink
         >
-        <ul class="flex gap-4">
+        <ul class="flex gap-4 items-center">
+          <ClientOnly>
+            <ColorModeSelector />
+          </ClientOnly>
           <li><NuxtLink to="/">Home</NuxtLink></li>
           <li><NuxtLink to="/todo">To-Dos</NuxtLink></li>
 

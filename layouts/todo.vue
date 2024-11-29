@@ -1,10 +1,13 @@
 <template>
   <div>
     <header class="shadow-sm bg-white dark:bg-slate-900">
-      <nav class="container mx-auto p-4 text-[#12b488]">
+      <nav class="container mx-auto p-4 text-[#12b488] flex justify-between">
         <NuxtLink to="/menu" class="font-bold text-2xl"
           >Nuxt<span class="text-black dark:text-gray-300">Todo</span></NuxtLink
         >
+        <ClientOnly>
+          <ColorModeSelector />
+        </ClientOnly>
       </nav>
     </header>
     <main class="container mx-auto p4">

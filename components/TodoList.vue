@@ -129,7 +129,7 @@ input[type="checkbox"] {
 .completed {
   opacity: 0.8;
   text-decoration: line-through;
-  color: black;
+  color: rgb(91, 90, 90);
 }
 .remove-todo-button {
   border: none;
