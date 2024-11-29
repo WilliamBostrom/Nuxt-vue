@@ -31,10 +31,8 @@ const { data } = await useFetch<Recipe[]>("api/food/menus");
 const recipes: Recipe[] = data.value || [];
 
 const filteredMeals = computed(() =>
-  recipes.filter(
-    (
-      meal // Ingen .value här på recipes
-    ) => meal.name.toLowerCase().includes(filterText.value.toLowerCase()) // använd filterText här istället
+  recipes.filter((meal) =>
+    meal.name.toLowerCase().includes(filterText.value.toLowerCase())
   )
 );
 </script>

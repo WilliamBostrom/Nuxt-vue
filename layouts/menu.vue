@@ -1,9 +1,9 @@
 <template>
   <div>
-    <header class="shadow-sm bg-white">
+    <header class="shadow-sm bg-white dark:bg-slate-900">
       <nav class="container mx-auto p-4 flex justify-between items-center">
         <NuxtLink to="/menu" class="font-bold text-2xl grow text-[#12b488]"
-          >Nuxt<span class="text-black">Menu</span></NuxtLink
+          >Nuxt<span class="text-black dark:text-gray-300">Menu</span></NuxtLink
         >
         <ul class="flex gap-4">
           <li><NuxtLink to="/">Home</NuxtLink></li>

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <header class="shadow-sm bg-white">
+    <header class="shadow-sm bg-white dark:bg-slate-900">
       <nav class="container mx-auto p-4 text-[#12b488]">
         <NuxtLink to="/menu" class="font-bold text-2xl"
-          >Nuxt<span class="text-black">Todo</span></NuxtLink
+          >Nuxt<span class="text-black dark:text-gray-300">Todo</span></NuxtLink
         >
       </nav>
     </header>

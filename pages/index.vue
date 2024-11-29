@@ -1,6 +1,6 @@
 <template>
   <main>
-    <section class="bg-[#f1f1f1]">
+    <section class="bg-[#f1f1f1] dark:bg-slate-800">
       <div
         class="container flex flex-col lg:flex-row items-center py-20 gap-10"
       >
