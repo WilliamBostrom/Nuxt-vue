@@ -19,7 +19,7 @@ body {
   }
   .default-margin {
     @apply mx-auto;
-    margin-left: 13vw;
-    margin-right: 13vw;
+    /* margin-left: 13vw;
+    margin-right: 13vw; */
   }
 }

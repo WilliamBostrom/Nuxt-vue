@@ -1,9 +1,9 @@
 <template>
-  <div class="default-margin mt-[60px] h-full">
+  <div class="sm:mt-[40px] md:mt-[50px] mt-[60px] h-full">
     <div class="flex flex-col-reverse items-center gap-5">
       <div class="">
         <form
-          class="card flex flex-col items-start justify-center w-full form-css p-3"
+          class="card flex flex-col items-center justify-center w-full form-css p-3 min-w-[350px]"
           action=""
         >
           <label v-if="isRegistration" for="name"
@@ -80,7 +80,15 @@ form {
   border-radius: 5px;
   margin-bottom: 16px;
   padding: 6px;
-  border: 1px solid black;
+}
+
+input {
+  outline: none;
+}
+input:focus {
+  @apply focus:outline-none
+  focus:ring-2
+  focus:ring-[#12b488];
 }
 
 .form-css input:last-of-type {
