@@ -1,18 +1,13 @@
 <template>
-  <div class="default-margin mt-[80px]">
-    <div class="flex flex-row">
-      <div class="bg-gray-50 mr-7">
+  <div class="default-margin mt-[60px] h-full">
+    <div class="flex flex-col-reverse items-center gap-5">
+      <div class="">
         <form
-          class="card flex flex-col items-start justify-center border-r border-gray-300 w-full form-css p-3"
+          class="card flex flex-col items-start justify-center w-full form-css p-3"
           action=""
         >
-          <label for="name"
-            >Username
-            <input
-              v-if="isRegistration"
-              type="text"
-              placeholder="Your name"
-              name="name"
+          <label v-if="isRegistration" for="name"
+            >Username <input type="text" placeholder="Your name" name="name"
           /></label>
           <label for="email"
             >Email
@@ -31,10 +26,9 @@
               name="password"
             />
           </label>
-          <label for="password"
+          <label v-if="isRegistration" for="password"
             >Confirm password
             <input
-              v-if="isRegistration"
               type="password"
               placeholder="Confirm password"
               name="password"
@@ -53,7 +47,9 @@
         </form>
       </div>
       <div>
-        <h1 class="text-6xl">{{ isRegistration ? "Register" : "Login" }}</h1>
+        <h1 class="text-6xl underline">
+          {{ isRegistration ? "Register" : "Login" }}
+        </h1>
       </div>
     </div>
   </div>
