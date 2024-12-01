@@ -18,9 +18,9 @@
 <script setup lang="ts">
 const filterText = ref("");
 
-definePageMeta({
-  layout: "menu",
-});
+// definePageMeta({
+//   layout: "menu",
+// });
 
 useHead({
   title: "NextMenu",

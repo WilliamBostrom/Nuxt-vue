@@ -36,4 +36,16 @@ const nextMode = computed(() => {
 });
 const nextModeIcon = computed(() => nextModeIcons[nextMode.value]);
 const toggleMode = () => (colorMode.preference = nextMode.value);
+
+const user = useSupabaseUser();
+watch(
+  user,
+  (user) => {
+    if (user) {
+      // alert("Signed in!");
+      console.log("Signed in!");
+    }
+  },
+  { immediate: true }
+);
 </script>

@@ -2,12 +2,13 @@
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/color-mode", "@nuxt/image"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/color-mode",
+    "@nuxtjs/supabase",
+    "@nuxt/image",
+  ],
 
-  // "@nuxtjs/supabase",
-  // supabase: {
-  //   redirect: false,
-  // },
   app: {
     head: {
       title: "NuxtChas",
@@ -19,5 +20,13 @@ export default defineNuxtConfig({
   },
   colorMode: {
     classSuffix: "",
+  },
+  supabase: {
+    redirect: true,
+  },
+  runtimeConfig: {
+    public: {
+      baseUrl: process.env.BASE_URL ?? "http://localhost:3000",
+    },
   },
 });

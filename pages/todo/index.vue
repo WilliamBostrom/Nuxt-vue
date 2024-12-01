@@ -10,9 +10,9 @@ interface Todo {
 }
 
 // Sidmetadata
-definePageMeta({
-  layout: "todo",
-});
+// definePageMeta({
+//   layout: "todo",
+// });
 useHead({
   title: "NextTodo",
 });

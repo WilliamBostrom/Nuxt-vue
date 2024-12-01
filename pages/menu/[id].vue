@@ -15,9 +15,9 @@ if (!recipe.value) {
   throw createError({ statusCode: 404, statusMessage: "Recipe not found." });
 }
 
-definePageMeta({
-  layout: "menu",
-});
+// definePageMeta({
+//   layout: "menu",
+// });
 useHead({
   title: recipe.value?.name ? `${recipe.value.name} - NextMenu` : "NextMenu",
 });

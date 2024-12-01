@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^3.5.2",
-    "@nuxtjs/tailwindcss": "^6.12.2"
+    "@nuxtjs/tailwindcss": "^6.12.2",
+    "@nuxtjs/supabase": "^1.1.0"
   }
 }
