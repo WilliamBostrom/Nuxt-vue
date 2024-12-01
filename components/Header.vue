@@ -70,9 +70,7 @@
       <ul class="space-y-4 py-4 px-6 border-b-2">
         <li><NuxtLink to="/todo" class="block">To-Dos</NuxtLink></li>
         <li><NuxtLink to="/menu" class="block">Food menu</NuxtLink></li>
-        <li>
-          <NuxtLink to="/login" class="block">Login</NuxtLink>
-        </li>
+
         <li>
           <button
             @click="

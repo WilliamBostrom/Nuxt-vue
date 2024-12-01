@@ -6,13 +6,14 @@
           @submit.prevent="handleLogin"
           class="card flex flex-col items-center justify-center w-full form-css p-3 min-w-[350px]"
         >
-          <label for="email"
+          <label class="font-semibold" for="email"
             >Email
             <input
+              class="bg-slate-200 font-normal"
               v-model="email"
               type="text"
               required
-              placeholder="example@mail.com"
+              placeholder="example@email.com"
               name="email"
           /></label>
 
@@ -107,5 +108,6 @@ input:focus {
 label {
   display: flex;
   flex-direction: column;
+  gap: 3px;
 }
 </style>
