@@ -1,10 +1,46 @@
-# Nuxt Minimal Starter
+# NuxtHome - Recept & Todo-applikation
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+En modern webbapplikation byggd med Nuxt 3 som kombinerar ett receptbibliotek med en todo-lista. Applikationen erbjuder en sömlös användarupplevelse med både ljust och mörkt tema.
 
-## Setup
+## Funktioner
 
-Make sure to install dependencies:
+- **Receptbibliotek**
+
+  - Bläddra bland recept
+  - Detaljerad receptvy med ingredienser och instruktioner
+  - Favoritmarkera recept
+  - Sökfunktion för recept
+  - Kalorieräknare och tillagningstid
+
+- **Todo-lista**
+
+  - Lägg till och ta bort todos
+  - Markera todos som klara
+  - Filtrera todos
+  - Lokal lagring av todos
+
+- **Användarfunktioner**
+  - Autentisering via Supabase
+  - Magisk länk-inloggning
+  - Persistenta användarinställningar
+
+## Teknisk Stack
+
+- **Frontend**: Nuxt 3, Vue 3, TypeScript
+- **Styling**: Tailwind CSS
+- **Autentisering**: Supabase
+- **State Management**: Vue Composition API
+- **API**: Server API Routes (Nuxt)
+
+## Installation
+
+1. Klona repot:
+
+```bash
+git clone [repo-url]
+```
+
+2. Installera beroenden:
 
 ```bash
 # npm
@@ -20,9 +56,7 @@ yarn install
 bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+3. Starta utvecklingsservern:
 
 ```bash
 # npm
@@ -38,9 +72,45 @@ yarn dev
 bun run dev
 ```
 
-## Production
+4. Öppna [http://localhost:3000](http://localhost:3000)
 
-Build the application for production:
+## Miljövariabler
+
+Skapa en `.env` fil i root-mappen med följande variabler:
+
+```
+SUPABASE_URL=din_supabase_url
+SUPABASE_KEY=din_supabase_nyckel
+BASE_URL=http://localhost:3000
+```
+
+## Byggd Med
+
+- [Nuxt 3](https://nuxt.com/) - Vue-baserat ramverk
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS-ramverk
+- [Supabase](https://supabase.com/) - Backend som tjänst
+- [TypeScript](https://www.typescriptlang.org/) - JavaScript med typer
+
+## Projektstruktur
+
+- `/components` - Återanvändbara Vue-komponenter
+- `/pages` - Applikationens routes/sidor
+- `/server/api` - API-endpoints
+- `/composables` - Återanvändbara Vue-composables
+- `/types` - TypeScript typedefinitioner
+- `/assets` - Statiska resurser
+
+## Features i Utveckling
+
+- [ ] Receptkategorier
+- [ ] Användarspecifika receptsamlingar
+- [ ] Delning av recept
+- [ ] Näringsvärdeskalkylator
+- [ ] Veckomenyplanerare
+
+## Produktion
+
+Bygg applikationen för produktion:
 
 ```bash
 # npm
@@ -56,7 +126,7 @@ yarn build
 bun run build
 ```
 
-Locally preview production build:
+Förhandsgranska produktionsbygget lokalt:
 
 ```bash
 # npm
@@ -72,4 +142,8 @@ yarn preview
 bun run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Se [deployeringsdokumentationen](https://nuxt.com/docs/getting-started/deployment) för mer information.
+
+## Licens
+
+Detta projekt är licensierat under MIT-licensen.

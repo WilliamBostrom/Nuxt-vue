@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     head: {
       title: "NuxtChas",
       meta: [
-        { name: "description", content: "Nuxt 3 - Recipes & Todo list" },
+        { name: "description", content: "Nuxt 3 - Recipes & To-dos" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
       ],
     },

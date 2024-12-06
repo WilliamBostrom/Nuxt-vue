@@ -16,10 +16,7 @@
 <script setup>
 const showNextModelLabel = ref(false);
 const colorMode = useColorMode();
-const modes = [
-  "light", // 1
-  "dark", // 2
-];
+const modes = ["light", "dark"];
 const nextModeIcons = {
   light: "🌕",
   dark: "🌑",

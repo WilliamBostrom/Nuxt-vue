@@ -21,7 +21,6 @@
               class="btn"
               @click="
                 async () => {
-                  console.log('klickad');
                   await supabase.auth.signOut();
                   $emit('toggle-menu', false);
                   return navigateTo('/login');

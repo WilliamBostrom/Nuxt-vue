@@ -9,10 +9,6 @@ interface Todo {
   completed: boolean;
 }
 
-// Sidmetadata
-// definePageMeta({
-//   layout: "todo",
-// });
 useHead({
   title: "NextTodo",
 });
@@ -155,7 +151,6 @@ async function handleToggleTodo(payload: { id: number; value: boolean }) {
           ? { ...todo, completed: updatedTodo.completed }
           : todo
       );
-      console.log(updatedTodo);
     }
   } catch (error) {
     alert("Network error");
@@ -163,7 +158,6 @@ async function handleToggleTodo(payload: { id: number; value: boolean }) {
 }
 function toggleShowList(): void {
   showList.value = !showList.value;
-  console.log(showList);
 }
 
 const filteredTasks = computed(() =>
